@@ -2,8 +2,9 @@ import cv2
 
 img = cv2.imread('images/Wet_street.jpg')
 img = cv2.resize(img, (img.shape[1] // 2, img.shape[0] // 2))
+img = cv2.GaussianBlur(img, (9, 9), 5)
 
-cv2.imshow('Wet street', img[0:400, 0:400])
+cv2.imshow('Wet street', img)
 print(img.shape)
 cv2.waitKey(0)
 
