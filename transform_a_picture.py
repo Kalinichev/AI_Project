@@ -12,7 +12,14 @@ def rotate(img_shadow, angle):
     return cv2.warpAffine(img_shadow, mat, (height, width))
 
 
-img = rotate(img, 90)
+# img = rotate(img, 90)
+
+def transform(img_shadow, x, y):
+    mat = np.float32([[1, 0, x], [0, 1, y]])
+    return cv2.warpAffine(img_shadow, mat, (img_shadow.shape[1], img_shadow.shape[0]))
+
+
+img = transform(img, 50, 100)
 
 cv2.imshow('super_picture', img)
 
