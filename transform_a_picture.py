@@ -16,7 +16,7 @@ def rotate(img_shadow, angle):
 
 def transform(img_shadow, x, y):
     mat = np.float32([[1, 0, x], [0, 1, y]])
-    return cv2.warpAffine(img_shadow, mat, (img_shadow.shape[1], img_shadow.shape[0]))
+    return cv2.warpAffine(img_shadow, mat, (img_shadow.shape[1] + max(x, y), img_shadow.shape[0] + max(x, y)))
 
 
 img = transform(img, 50, 100)
